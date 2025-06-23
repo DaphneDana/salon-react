@@ -1,0 +1,99 @@
+/* src/pages/HomePage/QuickStatsSection.module.css */
+.quickStatsSection {
+  background-color: var(--cream-white); /* As per brief, but can be adjusted for contrast */
+  /* If the brief implied the *icons* are Rose Gold, the background needs thought.
+     Let's assume cream-white background and rose gold for icons & numbers for now. */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Optional Section Title Styling */
+/*
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--deep-plum);
+  margin-bottom: 50px;
+  font-family: var(--font-primary);
+}
+*/
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  text-align: center;
+}
+
+.statItem {
+  padding: 25px 15px;
+  border-radius: 10px;
+  background-color: transparent; /* Or a very subtle background if needed */
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.05); */ /* Optional subtle shadow */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.statIconWrapper {
+  margin-bottom: 20px;
+  color: var(--primary-rose-gold); /* Rose Gold for icons */
+  /* If using actual SVGs and they have their own fill, target them like: */
+  /* & svg { width: 50px; height: 50px; fill: var(--primary-rose-gold); } */
+}
+.statIconPlaceholder { /* For emoji/text placeholders */
+ font-size: 3rem;
+}
+/* If using imported SVG components with a class:
+.statIcon {
+  width: 45px;
+  height: 45px;
+  fill: var(--primary-rose-gold); // Rose Gold for icons
+}
+*/
+
+.statValue { /* This class is passed to AnimatedCounter */
+  font-size: 2.8rem;
+  font-family: var(--font-primary);
+  color: var(--deep-plum); /* Numbers color */
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  /* For Rose Gold numbers: color: var(--primary-rose-gold); */
+}
+
+.statLabel {
+  font-size: 1rem;
+  color: var(--charcoal-gray);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+
+@media (max-width: 768px) {
+  .statsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+  .statValue {
+    font-size: 2.2rem;
+  }
+  .statLabel {
+    font-size: 0.9rem;
+  }
+ .statIconPlaceholder {
+     font-size: 2.5rem;
+ }
+}
+
+@media (max-width: 480px) {
+ .statsGrid {
+     grid-template-columns: repeat(2, 1fr); /* Two items per row on very small screens */
+     gap: 25px;
+ }
+}

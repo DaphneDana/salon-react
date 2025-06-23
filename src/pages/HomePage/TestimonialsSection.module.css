@@ -1,0 +1,112 @@
+/* src/pages/HomePage/TestimonialsSection.module.css */
+.testimonialsSection {
+  background-color: var(--deep-plum);
+  color: var(--cream-white);
+  /* section-padding handled by global class */
+  overflow: hidden; /* Important for coverflow effect if elements go outside */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  font-family: var(--font-primary);
+  color: var(--cream-white);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background-color: var(--primary-rose-gold);
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--cream-white);
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.swiperContainer {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 60px; /* Space for pagination and coverflow depth */
+}
+
+.swiperSlide {
+  background-position: center;
+  background-size: cover;
+  width: 320px; /* Adjust width for coverflow effect, or more based on content */
+  /* min-height: 300px; */ /* If not using autoHeight on swiper */
+  box-sizing: border-box;
+  /* Swiper with coverflow might add its own transforms, be careful with custom ones */
+}
+
+/* Make sure TestimonialCard itself fills the slide */
+.swiperSlide > div { /* Assuming TestimonialCard is the direct child */
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Swiper Pagination Styling (ensure it's visible on Deep Plum) */
+:global(.swiper-pagination-bullet) {
+  background-color: rgba(232, 180, 160, 0.5) !important; /* Rose Gold with opacity */
+  opacity: 1 !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: background-color 0.3s ease;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background-color: var(--primary-rose-gold) !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+/* Coverflow shadows (if enabled) might need adjustment if default is too dark/light */
+:global(.swiper-slide-shadow-left),
+:global(.swiper-slide-shadow-right) {
+  /* background-image: linear-gradient(to right, rgba(0,0,0,0.5) 0, rgba(0,0,0,0) 100%) !important; */
+  /* Adjust color and opacity of shadows as needed */
+  opacity: 0.3 !important;
+}
+
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+  .swiperSlide {
+     width: 85% !important; /* Allow single slide to take more width on mobile */
+     /* min-height: auto; */
+  }
+}
+
+ @media (max-width: 480px) {
+     .swiperSlide {
+         width: 90% !important;
+     }
+ }

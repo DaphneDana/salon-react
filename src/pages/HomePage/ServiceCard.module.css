@@ -1,0 +1,67 @@
+/* src/pages/HomePage/ServiceCard.module.css */
+.serviceCard {
+  background-color: var(--cream-white);
+  padding: 30px 25px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent; /* Prepare for rose gold accent */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes button to bottom if descriptions vary */
+  min-height: 320px; /* Or adjust as needed */
+}
+
+.serviceCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(107, 44, 92, 0.1); /* Deep plum subtle shadow */
+  border-color: var(--primary-rose-gold); /* Rose Gold accent border */
+}
+
+.iconWrapper {
+  font-size: 2.5rem; /* Adjust if using actual icons */
+  color: var(--primary-rose-gold);
+  margin-bottom: 20px;
+  line-height: 1; /* Ensure icon doesn't add extra space */
+}
+/* If using SVGs: */
+/* .iconWrapper svg { width: 50px; height: 50px; fill: var(--primary-rose-gold); } */
+
+
+.title {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  color: var(--deep-plum);
+  margin-bottom: 15px;
+}
+
+.description {
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  color: var(--charcoal-gray);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1; /* Allows description to take up space, pushing button down */
+}
+
+.learnMoreButton {
+  background-color: transparent;
+  color: var(--coral-pink);
+  font-family: var(--font-secondary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: 2px solid var(--coral-pink);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  align-self: center; /* Center button if card is display:flex */
+}
+
+.learnMoreButton:hover {
+  background-color: var(--coral-pink);
+  color: var(--cream-white);
+}

@@ -1,0 +1,200 @@
+/* src/components/layout/Header.module.css */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0; /* Vertical padding */
+  background-color: transparent;
+  z-index: 1000;
+  transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out, padding 0.4s ease-in-out;
+  font-family: var(--font-secondary);
+}
+
+.header.scrolled {
+  background-color: var(--cream-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px 0; /* Slightly reduced padding on scroll */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Horizontal padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-primary);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+.header.scrolled .logo {
+  color: var(--deep-plum);
+}
+.header:not(.scrolled) .logo { /* When transparent header over dark hero */
+  color: var(--cream-white); /* Adjust if needed based on hero bg */
+}
+
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  margin-left: 25px;
+  padding: 8px 12px;
+  text-decoration: none;
+  color: var(--charcoal-gray); /* Default text color when scrolled */
+  font-weight: 400;
+  font-size: 0.95rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.header:not(.scrolled) .navLink { /* Text color for transparent header */
+  color: var(--cream-white); /* Or a lighter shade if cream-white is too stark */
+}
+.header:not(.scrolled) .navLink:hover {
+  color: var(--primary-rose-gold);
+}
+
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--coral-pink);
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+  width: 70%;
+}
+
+.navLink.active {
+  color: var(--coral-pink);
+  font-weight: 600;
+}
+.header:not(.scrolled) .navLink.active { /* Ensure active link stands out on transparent header */
+ color: var(--coral-pink);
+}
+
+.ctaButtonHeader {
+  background-color: var(--coral-pink);
+  color: var(--cream-white) !important; /* Ensure high contrast */
+  padding: 10px 20px;
+  border-radius: 25px;
+  margin-left: 30px;
+  font-weight: 600;
+  transition: var(--transition-smooth), transform 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ctaButtonHeader:hover {
+  background-color: #ff5263; /* Slightly darker coral pink */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.ctaButtonHeader::after { /* Remove the underline effect from cta button */
+  display: none;
+}
+
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  display: none; /* Hidden on desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001; /* Above nav items when closed */
+}
+
+.hamburgerLine {
+  width: 25px;
+  height: 3px;
+  background-color: var(--deep-plum); /* Or var(--cream-white) when header is transparent */
+  margin: 5px 0;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
+}
+.header:not(.scrolled) .hamburgerLine {
+  background-color: var(--cream-white);
+}
+
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start off-screen */
+    width: 70%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--deep-plum);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Space for close button or header height */
+    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth slide */
+    box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+  }
+
+  .navOpen {
+    right: 0; /* Slide in */
+  }
+
+  .navLink {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: var(--cream-white); /* Links inside mobile nav */
+  }
+  .header:not(.scrolled) .navLink, /* Override for mobile menu */
+  .header.scrolled .navLink {
+      color: var(--cream-white); /* Always cream-white inside mobile menu */
+  }
+
+  .navLink.active {
+    color: var(--coral-pink);
+  }
+  .navLink.active::after {
+    background-color: var(--coral-pink); /* Ensure underline is visible */
+  }
+
+  .ctaButtonHeader {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  /* Hamburger animation to X */
+  .line1Open {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: var(--cream-white); /* Ensure X is visible on plum bg */
+  }
+  .line2Open {
+    opacity: 0;
+  }
+  .line3Open {
+    transform: rotate(-45deg) translate(7px, -6px);
+    background-color: var(--cream-white); /* Ensure X is visible on plum bg */
+  }
+}

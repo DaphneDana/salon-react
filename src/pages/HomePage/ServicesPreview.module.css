@@ -1,0 +1,63 @@
+/* src/pages/HomePage/ServicesPreview.module.css */
+.servicesPreviewSection {
+  background-color: var(--cream-white); /* Main background for the section */
+  /* section-padding class from global styles will handle padding */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Horizontal padding if not covered by section-padding */
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  color: var(--deep-plum);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+/* Rose Gold accent for the title */
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background-color: var(--primary-rose-gold);
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--charcoal-gray);
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  .servicesGrid {
+    grid-template-columns: 1fr; /* Stack on smaller screens */
+    gap: 25px;
+  }
+}
