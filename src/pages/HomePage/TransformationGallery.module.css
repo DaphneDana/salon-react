@@ -1,0 +1,169 @@
+/* src/pages/HomePage/TransformationGallery.module.css */
+.gallerySection {
+  background-color: var(--sage-green);
+  color: var(--cream-white);
+  /* section-padding class from global styles handles padding */
+}
+
+.container {
+  max-width: 1300px; /* Slightly wider for gallery if needed */
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2.8rem;
+  font-family: var(--font-primary);
+  color: var(--cream-white);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background-color: var(--primary-rose-gold); /* Rose gold accent */
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--cream-white);
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.swiperContainer {
+  width: 100%;
+  padding-top: 20px; /* Space for title/subtitle */
+  padding-bottom: 50px; /* Space for pagination */
+}
+
+.swiperSlide {
+  text-align: center;
+  font-size: 18px;
+  background: var(--cream-white); /* Fallback for image loading */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative; /* For overlay */
+  aspect-ratio: 3 / 4; /* Maintain aspect ratio, adjust as needed */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.galleryImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the slide area */
+  transition: transform 0.4s ease-in-out;
+}
+
+.swiperSlide:hover .galleryImage {
+  transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+.slideOverlay {
+  position: absolute;
+  bottom: 0; /* Position at the bottom */
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(44, 44, 44, 0.7) 0%, rgba(44, 44, 44, 0) 100%); /* Charcoal gray gradient */
+  padding: 20px;
+  box-sizing: border-box;
+  opacity: 0; /* Hidden by default */
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end; /* Pushes content to the bottom of overlay */
+  min-height: 80px; /* Ensure some height for the gradient and button */
+}
+
+.swiperSlide:hover .slideOverlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.viewDetailsButton { /* If you add this button to the overlay */
+  background-color: var(--coral-pink);
+  color: var(--cream-white);
+  padding: 8px 18px;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+.viewDetailsButton:hover {
+  background-color: #ff5263; /* Darker coral */
+}
+
+
+/* Swiper Navigation and Pagination Styling */
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+  color: var(--primary-rose-gold) !important; /* Important to override default */
+  background-color: rgba(250, 247, 242, 0.5); /* Cream white with opacity */
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  transition: background-color 0.3s ease;
+}
+:global(.swiper-button-next):hover,
+:global(.swiper-button-prev):hover {
+ background-color: rgba(250, 247, 242, 0.8);
+}
+
+:global(.swiper-button-next::after),
+:global(.swiper-button-prev::after) {
+  font-size: 1.2rem !important;
+  font-weight: bold;
+}
+
+:global(.swiper-pagination-bullet) {
+  background-color: rgba(250, 247, 242, 0.6) !important; /* Cream white pagination dots */
+  opacity: 1 !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: background-color 0.3s ease;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background-color: var(--primary-rose-gold) !important;
+  width: 12px !important;
+  height: 12px !important;
+}
+
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+ .swiperContainer {
+     padding-bottom: 40px;
+ }
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+     display: none !important; /* Hide arrows on smaller mobile, rely on swipe */
+  }
+}

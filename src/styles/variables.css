@@ -1,0 +1,21 @@
+/* src/styles/variables.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+
+:root {
+  /* Color Palette */
+  --primary-rose-gold: #E8B4A0;
+  --deep-plum: #6B2C5C;
+  --cream-white: #FAF7F2;
+  --coral-pink: #FF6B7A;
+  --sage-green: #87A96B;
+  --charcoal-gray: #2C2C2C;
+  --text-light: var(--cream-white);
+  --text-dark: var(--charcoal-gray);
+
+  /* Typography */
+  --font-primary: 'Playfair Display', serif; /* Elegant, for headings */
+  --font-secondary: 'Montserrat', sans-serif; /* Readable, for body text */
+
+  /* Transitions */
+  --transition-smooth: all 0.3s ease-in-out;
+}

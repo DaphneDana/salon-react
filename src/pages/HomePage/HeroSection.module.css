@@ -1,0 +1,193 @@
+/* src/pages/HomePage/HeroSection.module.css */
+.heroSection {
+  min-height: 100vh; /* Full-screen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--deep-plum); /* Fallback if image doesn't load */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  overflow: hidden; /* Important for floating icons staying within bounds */
+  padding: 20px;
+  color: var(--cream-white); /* Default text color for the hero */
+}
+
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(232, 180, 160, 0.8), /* Rose Gold with some opacity */
+    rgba(107, 44, 92, 0.9)   /* Deep Plum with some opacity */
+  );
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animated Text: "Total Look" */
+.animatedTitle {
+  font-family: var(--font-primary);
+  font-size: clamp(3rem, 10vw, 6rem); /* Responsive font size */
+  font-weight: 700;
+  color: var(--cream-white);
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.animatedTitle span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) scale(0.8);
+  animation: letterFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Stagger animation for each letter */
+.animatedTitle span:nth-child(1) { animation-delay: 0.1s; }
+.animatedTitle span:nth-child(2) { animation-delay: 0.2s; }
+.animatedTitle span:nth-child(3) { animation-delay: 0.3s; }
+.animatedTitle span:nth-child(4) { animation-delay: 0.4s; }
+.animatedTitle span:nth-child(5) { animation-delay: 0.5s; }
+.animatedTitle span:nth-child(6) { animation-delay: 0.6s; } /* space */
+.animatedTitle span:nth-child(7) { animation-delay: 0.7s; }
+.animatedTitle span:nth-child(8) { animation-delay: 0.8s; }
+.animatedTitle span:nth-child(9) { animation-delay: 0.9s; }
+.animatedTitle span:nth-child(10) { animation-delay: 1.0s; }
+
+
+@keyframes letterFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Tagline: "Where Beauty Meets Perfection" */
+.tagline {
+  font-family: var(--font-secondary);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--cream-white);
+  margin-bottom: 30px;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInFromBottom 0.8s ease-out 1.2s forwards; /* Delay after title animates */
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+@keyframes fadeInFromBottom {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Call-to-action button: "Book Your Transformation" */
+.ctaButton {
+  background-color: var(--coral-pink);
+  color: var(--cream-white);
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: var(--transition-smooth), transform 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: scale(0.9);
+  animation: ctaPopIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.5s forwards; /* Bouncy pop-in */
+}
+
+@keyframes ctaPopIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.ctaButton:hover {
+  background-color: #ff5263; /* Darker coral pink */
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Floating beauty-related icons */
+.floatingIconsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* So they don't interfere with clicks */
+  z-index: 0; /* Behind the gradient and content */
+}
+
+.floatingIcon {
+  position: absolute;
+  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive icon size */
+  opacity: 0.3; /* Subtle appearance */
+  animation: gentleFloat 15s infinite ease-in-out alternate, iconFadeIn 1s ease-out forwards;
+}
+
+.floatingIcon:nth-child(1) { top: 15%; left: 10%; }
+.floatingIcon:nth-child(2) { top: 70%; left: 5%; transform: scale(0.8); }
+.floatingIcon:nth-child(3) { top: 20%; right: 12%; transform: scale(1.1); }
+.floatingIcon:nth-child(4) { top: 80%; right: 15%; transform: scale(0.9); }
+.floatingIcon:nth-child(5) { top: 40%; left: 20%; transform: scale(1.2); animation-duration: 20s;}
+/* Add more positions if needed */
+
+
+@keyframes gentleFloat {
+  0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+  25% { transform: translateY(-15px) translateX(10px) rotate(5deg); }
+  50% { transform: translateY(10px) translateX(-10px) rotate(-5deg); }
+  75% { transform: translateY(-10px) translateX(15px) rotate(3deg); }
+  100% { transform: translateY(0px) translateX(0px) rotate(0deg); }
+}
+
+ @keyframes iconFadeIn {
+     from { opacity: 0; transform: scale(0.5); }
+     to { opacity: 0.3; transform: scale(var(--icon-scale, 1)); } /* Use a variable for scale if set in nth-child */
+ }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .animatedTitle {
+    font-size: clamp(2.5rem, 12vw, 4.5rem);
+    letter-spacing: 1px;
+  }
+  .tagline {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+  .ctaButton {
+    padding: 12px 28px;
+    font-size: 0.9rem;
+  }
+  .floatingIcon {
+     font-size: clamp(1.2rem, 3vw, 2rem);
+     opacity: 0.2;
+  }
+  .floatingIcon:nth-child(1) { top: 10%; left: 5%; }
+  .floatingIcon:nth-child(2) { display: none; } /* Hide some on mobile to avoid clutter */
+  .floatingIcon:nth-child(3) { top: 15%; right: 8%; }
+  .floatingIcon:nth-child(4) { top: 75%; right: 10%; }
+  .floatingIcon:nth-child(5) { display: none; }
+}

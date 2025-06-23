@@ -1,0 +1,5 @@
+/* src/components/common/AnimatedCounter.module.css */
+.counterValue {
+  font-weight: 700;
+  /* Add any specific styling for the number itself if needed */
+}

@@ -1,0 +1,83 @@
+/* src/pages/HomePage/TestimonialCard.module.css */
+.testimonialCard {
+  background-color: rgba(250, 247, 242, 0.08); /* Slightly transparent Cream White on Deep Plum */
+  border: 1px solid rgba(232, 180, 160, 0.3); /* Faint Rose Gold border */
+  padding: 30px;
+  border-radius: 12px;
+  color: var(--cream-white);
+  /* min-height: 280px; Remove if using Swiper's autoHeight or if content varies a lot */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonialCard:hover {
+ transform: translateY(-5px) scale(1.02);
+ box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 15px;
+  border: 2px solid var(--primary-rose-gold);
+}
+
+.authorInfo {
+  text-align: left;
+}
+
+.authorName {
+  font-family: var(--font-primary);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cream-white);
+  margin: 0 0 3px 0;
+}
+
+.authorRole {
+  font-size: 0.85rem;
+  color: var(--primary-rose-gold);
+  margin: 0;
+  font-style: italic;
+}
+
+.ratingWrapper {
+  margin-bottom: 15px;
+  /* If stars are not directly aligned how you want in card, adjust here */
+  /* display: flex; justify-content: flex-start; */
+}
+
+
+.quote {
+  font-family: var(--font-secondary);
+  font-size: 1rem; /* Slightly larger for readability */
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--cream-white);
+  opacity: 0.95;
+  flex-grow: 1; /* Pushes content down if needed, ensures consistent card height in flex/grid */
+  margin-bottom: 0; /* Remove bottom margin if it's the last element */
+  text-align: left;
+}
+
+.quote::before, .quote::after { /* Optional quote marks */
+ /* content: '"'; */
+ /* font-size: 1.5em; */
+ /* color: var(--primary-rose-gold); */
+ /* opacity: 0.7; */
+}
+.quote::before {
+ /* margin-right: 5px; */
+}
+.quote::after {
+ /* margin-left: 5px; */
+}

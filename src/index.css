@@ -1,0 +1,57 @@
+/* src/index.css or src/styles/global.css */
+@import './styles/variables.css'; /* If you created variables.css */
+
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: var(--cream-white);
+  color: var(--charcoal-gray);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  color: var(--deep-plum);
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: var(--font-secondary);
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utility class for sections if needed */
+.section-padding {
+  padding: 60px 20px;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding: 80px 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 100px 60px;
+  }
+}
