@@ -1,0 +1,315 @@
+/* src/pages/AboutPage/OurStorySection.module.css */
+.ourStorySection {
+  background-color: var(--cream-white);
+  color: var(--charcoal-gray);
+  /* section-padding class from global styles will handle padding */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding is handled by .section-padding from global.css */
+}
+
+.splitLayout {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 40px;
+  align-items: flex-start; /* Align items to the top */
+  margin-bottom: 60px; /* Space before timeline */
+}
+
+.textColumn {
+  flex: 1;
+  min-width: 300px; /* Ensure it doesn't get too squeezed */
+  /* max-width: 60%; Limit width on larger screens, adjust as needed */
+  padding-right: 20px; /* Give some space if image is to the right */
+}
+
+.imageColumn {
+  flex: 0 0 40%; /* Fixed width for image column, adjust percentage as needed */
+  max-width: 450px; /* Max width for the image container */
+  min-width: 300px; /* Ensure it doesn't get too squeezed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* For decorative elements if any */
+}
+
+.salonImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  border: 4px solid var(--primary-rose-gold); /* Rose Gold decorative border */
+  padding: 8px; /* Creates a matted look with the border */
+  background-color: var(--cream-white); /* Background for the padding area */
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
+  color: var(--deep-plum);
+  margin-bottom: 10px;
+}
+
+.roseGoldLine {
+  width: 80px;
+  height: 3px;
+  background-color: var(--primary-rose-gold);
+  margin-bottom: 25px;
+  border-radius: 2px;
+}
+
+.roseGoldLineSmall {
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-rose-gold);
+  margin-bottom: 30px;
+  border-radius: 2px;
+  margin-left: auto; /* Center if timeline title is centered */
+  margin-right: auto;
+}
+
+.introText {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  color: var(--charcoal-gray);
+  font-weight: 300;
+}
+
+.storyBlock {
+  margin-bottom: 25px;
+}
+
+.storyBlock h3 {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  color: var(--deep-plum);
+  margin-bottom: 10px;
+}
+
+.storyBlock p,
+.storyBlock li {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--charcoal-gray);
+  opacity: 0.9;
+}
+
+.storyBlock ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.storyBlock li {
+  padding-left: 25px; /* Space for custom bullet */
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.storyBlock li::before {
+  content: '❖'; /* Example custom diamond bullet */
+  position: absolute;
+  left: 0;
+  top: 1px; /* Adjust vertical alignment */
+  color: var(--primary-rose-gold);
+  font-size: 0.9em; /* Adjust bullet size */
+  line-height: 1;
+}
+
+/* Timeline Styling */
+.timelineSection {
+  margin-top: 50px;
+  padding-top: 30px; /* Add some space above the timeline title */
+  text-align: center;
+}
+
+.timelineTitle {
+  font-family: var(--font-primary);
+  font-size: 2.2rem;
+  color: var(--deep-plum);
+  margin-bottom: 10px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px; /* Control max width of timeline */
+  margin: 30px auto 0; /* Center timeline */
+  padding: 20px 0;
+}
+
+.timeline::before { /* The central vertical line of the timeline */
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background-color: var(--primary-rose-gold);
+  transform: translateX(-50%);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+.timelineItem {
+  padding: 10px 0; /* Vertical padding */
+  position: relative;
+  background-color: inherit; /* Transparent background */
+  width: 50%;
+  box-sizing: border-box;
+  margin-bottom: 30px; /* Space between items */
+}
+
+/* Align items to left and right */
+.timelineItem:nth-child(odd) {
+  left: 0;
+  padding-right: 60px; /* Space from center line (dot + content padding) */
+  text-align: right;
+}
+
+.timelineItem:nth-child(even) {
+  left: 50%;
+  padding-left: 60px; /* Space from center line */
+  text-align: left;
+}
+
+.timelineDot {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: var(--cream-white);
+  border: 4px solid var(--primary-rose-gold);
+  top: 18px; /* Adjust to align with year/title or content */
+  border-radius: 50%;
+  z-index: 1;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.timelineItem:nth-child(odd) .timelineDot {
+  right: -9px; /* (width/2) to sit on the line */
+  transform: translateX(50%) ;
+}
+
+.timelineItem:nth-child(even) .timelineDot {
+  left: -9px; /* -(width/2) to sit on the line */
+  transform: translateX(-50%);
+}
+
+.timelineItem:hover .timelineDot {
+  transform: scale(1.25) translateX(var(--dot-hover-translate-x, -50%));
+  background-color: var(--coral-pink);
+  border-color: var(--coral-pink);
+}
+.timelineItem:nth-child(odd):hover .timelineDot { --dot-hover-translate-x: 50%; }
+.timelineItem:nth-child(even):hover .timelineDot { --dot-hover-translate-x: -50%; }
+
+
+.timelineYear {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--deep-plum);
+  margin-bottom: 5px;
+  font-family: var(--font-primary);
+}
+
+.timelineContent {
+  padding: 15px 20px;
+  background-color: rgba(232, 180, 160, 0.1); /* Faint rose gold bg */
+  border: 1px solid rgba(232, 180, 160, 0.2); /* Slightly more defined border */
+  border-radius: 8px;
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  min-height: 100px; /* Ensure a minimum height for visual balance */
+}
+
+.timelineItem:hover .timelineContent {
+  box-shadow: 0 6px 18px rgba(107, 44, 92, 0.15); /* Deep plum shadow */
+  transform: translateY(-5px);
+}
+
+.timelineEventTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--deep-plum);
+  margin-bottom: 8px;
+}
+
+.timelineEventDesc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--charcoal-gray);
+  opacity: 0.85;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .splitLayout {
+    flex-direction: column-reverse; /* Stack image on top for tablet and mobile */
+    align-items: center; /* Center items when stacked */
+  }
+  .textColumn {
+    padding-right: 0; /* Remove padding when stacked */
+    max-width: 100%; /* Allow text to take full width */
+    text-align: center; /* Center text content */
+  }
+  .roseGoldLine {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .storyBlock ul {
+    display: inline-block; /* Helps with text-align:center on parent */
+    text-align: left; /* Keep list items left-aligned */
+  }
+
+  .imageColumn {
+    flex: 1; /* Allow it to take full width */
+    margin-bottom: 30px;
+    max-width: 500px; /* Still constrain image width */
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.3rem;
+  }
+  .introText {
+    font-size: 1.05rem;
+  }
+  .storyBlock h3 {
+    font-size: 1.4rem;
+  }
+  .timelineTitle {
+    font-size: 2rem;
+  }
+
+  /* Timeline stacks vertically */
+  .timeline::before {
+    left: 20px; /* Position line to the left */
+    transform: translateX(0);
+  }
+  .timelineItem,
+  .timelineItem:nth-child(even) { /* Apply to all items */
+    width: 100%;
+    padding-left: 55px; /* Space for dot and line */
+    padding-right: 15px;
+    text-align: left !important; /* Force left align */
+    left: 0; /* Reset left positioning */
+  }
+
+  .timelineItem .timelineDot,
+  .timelineItem:nth-child(even) .timelineDot { /* Apply to all items */
+    left: 20px; /* Align dot with the line */
+    transform: translateX(-50%); /* Center dot on line */
+    top: 22px; /* Re-adjust vertical alignment */
+  }
+  .timelineItem:hover .timelineDot {
+    transform: scale(1.25) translateX(-50%); /* Keep centered on hover */
+  }
+  .timelineItem:nth-child(odd) {
+    padding-right: 15px; /* Ensure consistent padding */
+  }
+}

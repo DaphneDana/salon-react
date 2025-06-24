@@ -1,0 +1,166 @@
+/* src/pages/AboutPage/TeamMemberCard.module.css */
+.cardContainer {
+  background-color: transparent; /* The card itself handles background */
+  width: 100%; /* Or set a fixed width like 300px */
+  min-height: 420px; /* Adjust based on content, ensure enough height for flip */
+  perspective: 1000px; /* For 3D flip effect */
+  border: 2px solid transparent; /* Prepare for Coral Pink accent */
+  border-radius: 12px; /* Apply border radius to the container to clip inner content */
+  transition: border-color 0.4s ease;
+  overflow: hidden; /* Ensures content within rounded borders */
+}
+
+.cardContainer:hover {
+  border-color: var(--coral-pink); /* Coral Pink accent border on hover */
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.7s cubic-bezier(0.3, 1, 0.5, 1); /* Smooth flip */
+  transform-style: preserve-3d;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 10px; /* Inner card radius */
+}
+
+.cardContainer:hover .cardInner {
+  transform: rotateY(180deg);
+}
+
+/* Common styles for front and back */
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content to top */
+  padding: 25px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+/* Front of the card */
+.cardFront {
+  background-color: var(--cream-white);
+  color: var(--charcoal-gray);
+}
+
+.imageWrapper {
+  width: 150px; /* Adjust size */
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 3px solid var(--primary-rose-gold); /* Rose gold accent for image */
+  box-shadow: 0 0 10px rgba(232, 180, 160, 0.5);
+}
+
+.memberImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+.memberName {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  color: var(--deep-plum);
+  margin-bottom: 5px;
+}
+
+.memberSpecialty {
+  font-size: 0.95rem;
+  color: var(--coral-pink);
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.memberBioShort {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--charcoal-gray);
+  opacity: 0.85;
+  margin-bottom: 15px; /* Space before hover indicator */
+}
+
+.hoverIndicator {
+ font-size: 0.8rem;
+ color: var(--charcoal-gray);
+ opacity: 0.6;
+ margin-top: auto; /* Pushes to bottom */
+ padding-top: 10px;
+ font-style: italic;
+}
+
+/* Back of the card */
+.cardBack {
+  background-color: var(--deep-plum); /* Deep Plum background for the back */
+  color: var(--cream-white);
+  transform: rotateY(180deg);
+  justify-content: center; /* Center content more on the back */
+}
+
+.memberNameBack {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  color: var(--primary-rose-gold);
+  margin-bottom: 5px;
+}
+.memberSpecialtyBack {
+ font-size: 0.9rem;
+ color: var(--coral-pink);
+ font-weight: 500;
+ margin-bottom: 15px;
+}
+
+.divider {
+  width: 50px;
+  height: 2px;
+  background-color: var(--primary-rose-gold);
+  border: none;
+  margin: 10px auto 15px;
+}
+
+.memberBioFull {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  max-width: 90%;
+}
+
+/* Responsive: On smaller screens, maybe disable flip or simplify */
+@media (max-width: 768px) {
+  .cardContainer {
+    min-height: 380px; /* Adjust height for smaller screens if needed */
+  }
+  .imageWrapper {
+     width: 120px;
+     height: 120px;
+  }
+  .memberName {
+     font-size: 1.3rem;
+  }
+  /* Optional: Disable flip on mobile if it's too much, and just show front content */
+  /*
+  .cardContainer:hover .cardInner {
+    transform: none;
+  }
+  .cardBack {
+    display: none;
+  }
+  .hoverIndicator {
+     display: none;
+  }
+  */
+}
