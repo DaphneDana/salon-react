@@ -1,0 +1,70 @@
+/* src/pages/AboutPage/AwardsCertsSection.module.css */
+.awardsCertsSection {
+  background-color: var(--deep-plum);
+  color: var(--cream-white); /* Default text color for this section */
+  /* section-padding class from global styles handles padding */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
+  color: var(--cream-white);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+.sectionTitle::after { /* Rose Gold accent line */
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background-color: var(--primary-rose-gold);
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--cream-white);
+  opacity: 0.9;
+  margin-bottom: 50px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.awardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px; /* Space between award items */
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  .awardsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+ .awardsGrid {
+     grid-template-columns: repeat(2, 1fr); /* Two items per row on small mobile */
+ }
+}

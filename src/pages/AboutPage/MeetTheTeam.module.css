@@ -1,0 +1,79 @@
+/* src/pages/AboutPage/MeetTheTeamSection.module.css */
+.meetTheTeamSection {
+  background-color: var(--cream-white); /* Or a very light contrasting color if desired */
+  /* padding handled by section-padding */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
+  color: var(--deep-plum);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+.sectionTitle::after { /* Rose Gold accent line */
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background-color: var(--primary-rose-gold);
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--charcoal-gray);
+  margin-bottom: 50px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.teamGrid {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ensures cards don't get too small */
+  gap: 30px; /* Space between cards */
+}
+
+@media (max-width: 992px) { /* For tablets */
+ .teamGrid {
+     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+     gap: 25px;
+ }
+}
+
+
+@media (max-width: 768px) { /* For mobile */
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  .teamGrid {
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    grid-template-columns: 1fr; /* Stack cards on smaller mobile */
+    gap: 30px; /* Increase gap if stacked for better separation */
+    max-width: 350px; /* Constrain width of single column */
+    margin: 0 auto; /* Center the single column */
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) { /* Larger mobile / Small Tablet */
+     .teamGrid {
+         grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+     }
+ }

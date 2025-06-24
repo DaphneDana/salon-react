@@ -1,0 +1,121 @@
+/* src/pages/AboutPage/SalonFeaturesSection.module.css */
+.salonFeaturesSection {
+  background-color: var(--sage-green);
+  color: var(--cream-white); /* Text color for contrast on sage green */
+  /* section-padding class from global styles handles padding */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
+  color: var(--cream-white); /* Ensure title is visible */
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+.sectionTitle::after { /* Rose Gold accent line */
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background-color: var(--primary-rose-gold);
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--cream-white);
+  opacity: 0.9;
+  margin-bottom: 50px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px; /* Space between feature items */
+}
+
+.featureItem {
+  background-color: rgba(250, 247, 242, 0.08); /* Subtle cream-white overlay on sage */
+  padding: 30px 25px;
+  border-radius: 10px;
+  text-align: center; /* Center content within the item */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(250, 247, 242, 0.2); /* Faint border */
+}
+
+.featureItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  background-color: rgba(250, 247, 242, 0.12);
+}
+
+.featureIconWrapper {
+  margin-bottom: 20px;
+  /* If using SVG icons and want them colored by CSS: */
+  color: var(--primary-rose-gold); /* Example for icon color */
+}
+
+.featureIconPlaceholder { /* For emoji/text placeholders */
+  font-size: 2.8rem; /* Adjust size of emoji */
+  line-height: 1;
+}
+/* If using imported SVG components with a class like .featureIcon:
+.featureIcon {
+  width: 50px;
+  height: 50px;
+  fill: var(--primary-rose-gold); // Or use currentColor and set color on wrapper
+}
+*/
+
+.featureTitle {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  color: var(--cream-white); /* Title color */
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.featureDescription {
+  font-size: 0.95rem;
+  color: var(--cream-white);
+  opacity: 0.85;
+  line-height: 1.7;
+}
+
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  .featuresGrid {
+    grid-template-columns: 1fr; /* Stack on smaller screens */
+    gap: 25px;
+  }
+  .featureItem {
+     padding: 25px 20px;
+  }
+  .featureIconPlaceholder {
+     font-size: 2.5rem;
+  }
+  .featureTitle {
+     font-size: 1.3rem;
+  }
+}
