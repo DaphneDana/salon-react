@@ -1,0 +1,65 @@
+/* src/pages/CareersPage/StaffTestimonialCard.module.css */
+.testimonialCard {
+  background-color: rgba(250, 247, 242, 0.08); /* Slightly transparent Cream White on Deep Plum */
+  border: 1px solid rgba(232, 180, 160, 0.25); /* Faint Rose Gold border */
+  padding: 30px 25px;
+  border-radius: 12px;
+  color: var(--cream-white);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.avatar {
+  width: 100px; /* Larger avatar for staff */
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid var(--primary-rose-gold); /* Rose Gold border for avatar */
+}
+
+.quote {
+  font-family: var(--font-secondary);
+  font-size: 1.05rem; /* Slightly larger quote text */
+  line-height: 1.7;
+  font-style: italic;
+  color: var(--cream-white);
+  opacity: 0.95;
+  margin-bottom: 20px;
+  flex-grow: 1; /* Allows quote to take available space */
+}
+
+
+.authorInfo {
+  margin-top: auto; /* Pushes to bottom */
+}
+
+.authorName {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cream-white);
+  margin: 0 0 3px 0;
+}
+
+.authorPosition {
+  font-size: 0.9rem;
+  color: var(--primary-rose-gold); /* Rose Gold for position */
+  margin: 0;
+  font-weight: 500;
+}
+
+.yearsInfo {
+ font-size: 0.8rem;
+ color: var(--cream-white);
+ opacity: 0.7;
+ margin-top: 5px;
+}

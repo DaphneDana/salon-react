@@ -1,0 +1,157 @@
+/* src/pages/CareersPage/JobListingCard.module.css */
+.jobCard {
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.jobCard:hover {
+  box-shadow: 0 8px 25px rgba(107, 44, 92, 0.1); /* Deep plum subtle shadow */
+  transform: translateY(-5px);
+}
+
+/* Alternating backgrounds */
+.creamBg {
+  background-color: var(--cream-white);
+  color: var(--charcoal-gray);
+  border: 1px solid rgba(232, 180, 160, 0.3); /* Faint rose gold border */
+}
+.creamBg .jobTitle, .creamBg h4, .creamBg .salary strong {
+ color: var(--deep-plum);
+}
+.creamBg .jobMeta span, .creamBg .list li {
+ color: var(--charcoal-gray);
+}
+.creamBg .detailsButton {
+ color: var(--deep-plum);
+ border-color: var(--deep-plum);
+}
+.creamBg .detailsButton:hover {
+ background-color: var(--deep-plum);
+ color: var(--cream-white);
+}
+
+
+.sageBg {
+  background-color: var(--sage-green);
+  color: var(--cream-white);
+  border: 1px solid rgba(250, 247, 242, 0.2); /* Faint cream border */
+}
+.sageBg .jobTitle, .sageBg h4, .sageBg .salary strong {
+ color: var(--cream-white);
+}
+.sageBg .jobMeta span, .sageBg .list li {
+ color: var(--cream-white);
+ opacity: 0.9;
+}
+.sageBg .detailsButton {
+ color: var(--cream-white);
+ border-color: var(--cream-white);
+}
+.sageBg .detailsButton:hover {
+ background-color: var(--cream-white);
+ color: var(--sage-green);
+}
+
+
+.cardHeader {
+ margin-bottom: 15px;
+}
+
+.jobTitle {
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  margin: 0 0 5px 0;
+}
+
+.jobMeta {
+ display: flex;
+ gap: 15px;
+ font-size: 0.85rem;
+ opacity: 0.8;
+ margin-bottom: 10px;
+}
+.location::before { content: '📍 '; margin-right: 3px; }
+.jobType::before { content: '⏱️ '; margin-right: 3px; }
+
+
+.detailsWrapper {
+  max-height: 100px; /* Initial height for 3 items (approx) */
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  margin-bottom: 20px;
+  flex-grow: 1; /* Allows content to expand */
+}
+
+.detailsWrapper.expanded {
+  max-height: 1000px; /* Large enough for all content */
+}
+
+.jobCard h4 {
+  font-family: var(--font-secondary);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+.jobCard h4:first-child {
+ margin-top: 0;
+}
+
+.list {
+  list-style: disc; /* Or use custom bullets */
+  padding-left: 20px;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.list li {
+  margin-bottom: 6px;
+}
+
+.salary {
+  font-size: 0.9rem;
+  margin-top: 15px;
+}
+
+.cardFooter {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ margin-top: auto; /* Pushes footer to bottom */
+ padding-top: 15px; /* Space above footer buttons */
+ border-top: 1px solid rgba(0,0,0,0.08); /* Subtle separator */
+}
+.creamBg .cardFooter { border-top-color: rgba(107, 44, 92, 0.15); }
+.sageBg .cardFooter { border-top-color: rgba(250, 247, 242, 0.2); }
+
+
+.detailsButton {
+ background-color: transparent;
+ padding: 8px 15px;
+ border-radius: 20px;
+ border: 1.5px solid; /* Color set by parent bg class */
+ cursor: pointer;
+ font-size: 0.85rem;
+ font-weight: 600;
+ transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.applyButton {
+  background-color: var(--coral-pink);
+  color: var(--cream-white);
+  padding: 10px 22px;
+  border: none;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition-smooth), transform 0.2s ease;
+}
+.applyButton:hover {
+  background-color: #ff5263; /* Darker coral */
+  transform: translateY(-2px);
+}
