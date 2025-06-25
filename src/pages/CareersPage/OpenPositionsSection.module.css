@@ -1,0 +1,79 @@
+/* src/pages/CareersPage/OpenPositionsSection.module.css */
+.openPositionsSection {
+  background-color: var(--cream-white); /* Main background for this section */
+  /* section-padding class from global styles handles padding */
+}
+
+.container {
+  max-width: 1000px; /* Adjust as needed */
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
+  color: var(--deep-plum);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+.sectionTitle::after { /* Rose Gold accent line */
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background-color: var(--primary-rose-gold);
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--charcoal-gray);
+  opacity: 0.9;
+  margin-bottom: 50px;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+}
+
+.jobGrid {
+  display: grid;
+  /* For single column of cards, or two columns on larger screens */
+  /* grid-template-columns: 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px; /* Space between job cards */
+}
+@media (max-width: 900px) {
+ .jobGrid {
+     grid-template-columns: 1fr; /* Single column for job cards on smaller screens */
+ }
+}
+
+
+.noOpeningsMessage {
+  font-size: 1.1rem;
+  color: var(--charcoal-gray);
+  padding: 30px;
+  background-color: rgba(232, 180, 160, 0.15); /* Light Rose Gold bg for message */
+  border-radius: 8px;
+  border: 1px dashed var(--primary-rose-gold);
+}
+
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+    margin-bottom: 40px;
+  }
+  .jobGrid {
+    gap: 25px;
+  }
+}
