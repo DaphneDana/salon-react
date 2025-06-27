@@ -1,0 +1,186 @@
+/* src/pages/ServicesPage/ServiceDetailSection.module.css */
+.serviceDetailSection {
+  background-color: var(--cream-white); /* Default for sections */
+  /* If you want alternating backgrounds for sections:
+  &:nth-child(even) { background-color: var(--sage-green); color: var(--cream-white); }
+  This requires parent to be display:contents or similar, or JS logic for class.
+  For simplicity, let's keep sections on cream-white and use layout prop for image pos. */
+}
+/* Add specific color overrides if section background changes */
+.serviceDetailSection:nth-child(even) { /* Example for alternating section colors */
+     background-color: var(--sage-green); /* Or another color like a light plum */
+}
+.serviceDetailSection:nth-child(even) .categoryTitle,
+.serviceDetailSection:nth-child(even) .categoryIntro,
+.serviceDetailSection:nth-child(even) .subServiceTitle,
+.serviceDetailSection:nth-child(even) .subServiceDescription,
+.serviceDetailSection:nth-child(even) .benefitsList li,
+.serviceDetailSection:nth-child(even) .metaInfo {
+     color: var(--cream-white);
+}
+ .serviceDetailSection:nth-child(even) .subServiceItem {
+     border-color: rgba(250, 247, 242, 0.2); /* Lighter border for dark bg */
+     background-color: rgba(250, 247, 242, 0.05);
+ }
+ .serviceDetailSection:nth-child(even) .bookButton {
+     background-color: var(--primary-rose-gold);
+     color: var(--deep-plum);
+ }
+ .serviceDetailSection:nth-child(even) .bookButton:hover {
+     background-color: var(--cream-white);
+ }
+
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.categoryTitle {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  color: var(--deep-plum);
+  margin-bottom: 10px;
+}
+
+.categoryIntro {
+  font-size: 1.1rem;
+  color: var(--charcoal-gray);
+  opacity: 0.9;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 40px;
+  align-items: flex-start; /* Align columns */
+}
+
+.imageColumn {
+  flex: 1;
+  min-width: 300px; /* Ensure it has space */
+  max-width: 450px; /* Limit image size */
+  margin: 0 auto; /* Center if it wraps alone */
+}
+.imageRightLayout .imageColumn {
+  order: 2; /* Moves image to the right */
+}
+
+.categoryImage {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.detailsColumn {
+  flex: 1.5; /* Give more space to details */
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Space between sub-service items */
+}
+
+.subServiceItem {
+  background-color: var(--cream-white);
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid rgba(107, 44, 92, 0.1); /* Subtle deep plum border */
+}
+
+.subServiceTitle {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  color: var(--deep-plum);
+  margin-bottom: 10px;
+}
+
+.subServiceDescription {
+  font-size: 0.95rem;
+  color: var(--charcoal-gray);
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.benefitsList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+.benefitsList li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 6px;
+  color: var(--charcoal-gray);
+}
+.benefitsList li::before {
+  content: '✓'; /* Checkmark bullet */
+  position: absolute;
+  left: 0;
+  color: var(--coral-pink); /* Coral pink for checkmark */
+  font-weight: bold;
+}
+
+.metaInfo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: 0.85rem;
+  color: var(--charcoal-gray);
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+.duration, .price {
+  background-color: rgba(232, 180, 160, 0.2); /* Light rose gold bg for meta tags */
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+ /* Specific overrides for even (darker bg) sections */
+ .serviceDetailSection:nth-child(even) .metaInfo .duration,
+ .serviceDetailSection:nth-child(even) .metaInfo .price {
+     background-color: rgba(250, 247, 242, 0.15); /* Lighter bg for meta on dark section */
+     color: var(--cream-white); /* Ensure text is visible */
+ }
+
+
+.bookButton {
+  display: inline-block;
+  background-color: var(--coral-pink);
+  color: var(--cream-white);
+  padding: 10px 22px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition-smooth);
+}
+.bookButton:hover {
+  background-color: #ff5263; /* Darker coral */
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    flex-direction: column;
+  }
+  .imageRightLayout .imageColumn {
+    order: 0; /* Reset order on mobile so image is always first */
+  }
+  .imageColumn {
+     max-width: 100%; /* Allow image to be full width when stacked */
+     margin-bottom: 30px;
+  }
+  .categoryTitle { font-size: 2.1rem; }
+  .subServiceTitle { font-size: 1.3rem; }
+}
