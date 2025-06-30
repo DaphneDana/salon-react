@@ -1,0 +1,145 @@
+/* src/pages/ContactPage/LocationDetailsSection.module.css */
+.locationDetailsSection {
+  background-color: var(--cream-white);
+  color: var(--charcoal-gray);
+  /* section-padding class from global styles handles padding */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center; /* Center titles */
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+  color: var(--deep-plum);
+  margin-bottom: 10px;
+}
+
+.sectionSubtitle {
+  font-size: 1.05rem;
+  color: var(--charcoal-gray);
+  opacity: 0.9;
+  margin-bottom: 50px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  text-align: left; /* Align content within each item to the left */
+}
+
+.detailItem {
+  background-color: rgba(232, 180, 160, 0.1); /* Very faint Rose Gold tint */
+  padding: 25px 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(107, 44, 92, 0.1); /* Subtle Deep Plum border */
+  display: flex;
+  flex-direction: column; /* Stack icon, title, text */
+}
+
+.iconWrapper {
+  margin-bottom: 15px;
+  /* display: flex; align-items: center; justify-content: center; */ /* if icon needs specific centering */
+}
+
+.icon {
+  font-size: 2.2rem; /* For emoji icons */
+  color: var(--primary-rose-gold); /* Icon color */
+  line-height: 1;
+  /* If using SVG:
+  width: 40px;
+  height: 40px;
+  fill: var(--primary-rose-gold); */
+}
+
+.detailTitle {
+  font-family: var(--font-primary);
+  font-size: 1.4rem;
+  color: var(--deep-plum);
+  margin-bottom: 12px;
+}
+
+.detailText {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--charcoal-gray);
+  opacity: 0.95;
+  margin-bottom: 15px; /* Space before potential link */
+  flex-grow: 1; /* Allows text to take space, pushing link down if present */
+}
+.detailText strong {
+ color: var(--deep-plum);
+ font-weight: 600;
+}
+
+.actionLink {
+ display: inline-block;
+ background-color: var(--coral-pink);
+ color: var(--cream-white);
+ padding: 8px 18px;
+ border-radius: 20px;
+ text-decoration: none;
+ font-weight: 600;
+ font-size: 0.9rem;
+ transition: var(--transition-smooth);
+ margin-top: auto; /* Pushes to the bottom of the card */
+ align-self: flex-start; /* Align to the start if text-align is center on parent */
+}
+.actionLink:hover {
+ background-color: #ff5263; /* Darker coral */
+ transform: translateY(-2px);
+}
+
+
+.landmarkList {
+  list-style: none; /* Can use custom bullets */
+  padding-left: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--charcoal-gray);
+  opacity: 0.95;
+}
+.landmarkList li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.landmarkList li::before {
+  content: '❖'; /* Example custom bullet */
+  position: absolute;
+  left: 0;
+  color: var(--primary-rose-gold);
+  font-size: 0.9em;
+  top: 3px;
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+  .detailsGrid {
+    grid-template-columns: 1fr; /* Stack on smaller screens */
+    gap: 25px;
+  }
+  .detailItem {
+     padding: 20px 25px;
+  }
+  .detailTitle {
+     font-size: 1.3rem;
+  }
+  .icon {
+     font-size: 2rem;
+  }
+}
