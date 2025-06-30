@@ -1,0 +1,225 @@
+/* src/pages/ContactPage/ContactFormSection.module.css */
+.contactFormSection {
+  background-color: var(--cream-white); /* Background for this section */
+  /* section-padding class from global styles handles padding */
+}
+
+.container {
+  max-width: 800px; /* Constrain form width for better readability */
+  margin: 0 auto;
+  text-align: center; /* Center titles */
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: 2.5rem; /* Slightly smaller for form section */
+  color: var(--deep-plum);
+  margin-bottom: 10px;
+}
+
+.sectionSubtitle {
+  font-size: 1.05rem;
+  color: var(--charcoal-gray);
+  opacity: 0.9;
+  margin-bottom: 40px;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form groups */
+  text-align: left; /* Align labels and inputs to the left */
+}
+
+.formGroup {
+  position: relative;
+}
+
+/* Floating Label Styling */
+.floatingLabelGroup {
+  position: relative;
+}
+
+.formInput,
+.formSelect,
+.formTextarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-family: var(--font-secondary);
+  color: var(--charcoal-gray);
+  background-color: var(--cream-white);
+  border: 1px solid rgba(107, 44, 92, 0.3); /* Subtle Deep Plum border */
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+.formSelect {
+ appearance: none; /* Remove default select arrow */
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%236B2C5C'%3E%3Cpath d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+ background-repeat: no-repeat;
+ background-position: right 15px center;
+ background-size: 20px;
+ padding-right: 40px; /* Make space for custom arrow */
+}
+
+
+.formInput:focus,
+.formSelect:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: var(--coral-pink);
+  box-shadow: 0 0 0 3px rgba(255, 107, 122, 0.2); /* Coral Pink focus ring */
+}
+
+/* Floating label magic */
+.floatingLabel {
+  position: absolute;
+  left: 18px;
+  top: 15px; /* Vertically centered with padding */
+  font-size: 1rem;
+  color: var(--charcoal-gray);
+  opacity: 0.7;
+  pointer-events: none;
+  transition: all 0.2s ease-out;
+  background-color: var(--cream-white); /* Match input background to cover border */
+  padding: 0 5px; /* Create space around text so it doesn't touch border */
+}
+
+/* When input has content (via :not(:placeholder-shown)) or is focused */
+.formInput:not(:placeholder-shown) + .floatingLabel,
+.formInput:focus + .floatingLabel,
+.formTextarea:not(:placeholder-shown) + .floatingLabel,
+.formTextarea:focus + .floatingLabel,
+.formSelect:valid + .selectLabel, /* For select when an option is chosen */
+.formSelect:focus + .selectLabel {
+  top: -10px; /* Move label up */
+  left: 12px;
+  font-size: 0.8rem;
+  color: var(--coral-pink); /* Highlight color when active */
+  opacity: 1;
+}
+
+ .formInput[type="date"]:not([value=""]) + .dateLabel, /* If it has a value */
+ .formInput[type="time"]:not([value=""]) + .timeLabel,
+ .formInput[type="date"]:focus + .dateLabel,
+ .formInput[type="time"]:focus + .timeLabel {
+     top: -10px;
+     left: 12px;
+     font-size: 0.8rem;
+     color: var(--coral-pink);
+     opacity: 1;
+ }
+
+
+
+
+.formInput.inputError,
+.formSelect.inputError,
+.formTextarea.inputError {
+  border-color: #d9534f; /* Error red color */
+}
+.formInput.inputError:focus,
+.formSelect.inputError:focus,
+.formTextarea.inputError:focus {
+  box-shadow: 0 0 0 3px rgba(217, 83, 79, 0.2);
+}
+
+.errorMessage {
+  font-size: 0.8rem;
+  color: #d9534f; /* Error red */
+  margin-top: 5px;
+  padding-left: 2px;
+  animation: fadeInError 0.3s ease-out;
+}
+@keyframes fadeInError {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dateTimeRow {
+ display: flex;
+ gap: 20px;
+}
+.dateTimeRow > div { /* Each form group in the row */
+ flex: 1;
+}
+
+.submitButton {
+  background-color: var(--coral-pink);
+  color: var(--cream-white);
+  font-family: var(--font-secondary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px; /* Ensure height for spinner */
+  width: auto; /* Adjust as needed, or max-width */
+  margin: 20px auto 0; /* Center button */
+  min-width: 200px;
+}
+
+.submitButton:hover:not(:disabled) {
+  background-color: #ff5263; /* Darker coral pink */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 107, 122, 0.3);
+}
+.submitButton:disabled {
+  background-color: #f7a8b0; /* Lighter, disabled coral pink */
+  cursor: not-allowed;
+}
+
+.loadingSpinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--cream-white);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.successMessage,
+.submitErrorMessage {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+.successMessage {
+  background-color: rgba(135, 169, 107, 0.15); /* Sage Green light bg */
+  color: var(--sage-green); /* Sage Green text */
+  border: 1px solid var(--sage-green);
+}
+.submitErrorMessage {
+  background-color: rgba(217, 83, 79, 0.1); /* Error red light bg */
+  color: #a94442; /* Darker error red text */
+  border: 1px solid #d9534f;
+}
+
+
+@media (max-width: 600px) {
+ .dateTimeRow {
+     flex-direction: column;
+     gap: 20px; /* Same as form gap */
+ }
+ .sectionTitle {
+     font-size: 2.2rem;
+ }
+ .submitButton {
+     width: 100%;
+ }
+}

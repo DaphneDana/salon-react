@@ -1,0 +1,214 @@
+/* src/pages/ContactPage/ContactInfoSection.module.css */
+.contactInfoSection {
+  background-color: var(--primary-rose-gold); /* Rose Gold section background */
+  color: var(--deep-plum); /* Default text color for contrast on Rose Gold */
+  /* section-padding class from global styles handles padding */
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.sectionTitle {
+  font-family: var(--font-primary);
+  font-size: 2.8rem;
+  color: var(--deep-plum);
+  margin-bottom: 10px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--charcoal-gray); /* Darker text for subtitle on rose gold */
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping */
+  gap: 40px; /* Space between info details and map */
+  align-items: flex-start; /* Align columns at the top */
+}
+
+.infoDetails {
+  flex: 1; /* Takes available space */
+  min-width: 300px; /* Minimum width before wrapping */
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Space between individual info items */
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start; /* Align icon with top of text block */
+  gap: 18px; /* Space between icon and text content */
+  background-color: rgba(250, 247, 242, 0.4); /* Semi-transparent cream-white for item bg */
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(107, 44, 92, 0.15); /* Faint deep-plum border for items */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.icon {
+  font-size: 1.8rem; /* For emoji icons */
+  color: var(--deep-plum); /* Icon color */
+  margin-top: 2px; /* Slight adjustment for alignment */
+  flex-shrink: 0; /* Prevent icon from shrinking if text is long */
+  width: 30px; /* Give icon a fixed width for alignment */
+  text-align: center;
+}
+/* If using SVG icons from react-icons or similar:
+.icon {
+  font-size: 1.6rem;
+  color: var(--deep-plum);
+  margin-top: 3px;
+}
+*/
+
+.itemTitle {
+  font-family: var(--font-primary);
+  font-size: 1.3rem;
+  color: var(--deep-plum);
+  margin-top: 0; /* Remove default margin */
+  margin-bottom: 8px;
+}
+
+.infoItem p,
+.infoItem address {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--charcoal-gray);
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+.infoItem address {
+  font-style: normal;
+}
+
+
+.contactLink,
+.mapLink {
+  font-size: 1rem;
+  color: var(--deep-plum);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+.contactLink:hover,
+.mapLink:hover {
+  color: var(--coral-pink);
+  text-decoration: underline;
+  text-decoration-color: var(--coral-pink);
+}
+
+.mapLink {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  background-color: rgba(107, 44, 92, 0.08); /* Subtle deep-plum bg for button */
+  border-radius: 4px;
+  font-weight: 600;
+}
+.mapLink:hover {
+    background-color: rgba(107, 44, 92, 0.15);
+}
+
+.hoursList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--charcoal-gray);
+}
+.hoursList li {
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between; /* Pushes time to the right */
+  line-height: 1.5;
+}
+.hoursList li:last-child {
+  margin-bottom: 0;
+}
+.hoursList li span { /* For "Mon - Fri:" part */
+  font-weight: 600;
+  color: var(--deep-plum);
+  margin-right: 10px; /* Space between day and time */
+  flex-shrink: 0;
+}
+
+.mapPlaceholder {
+  flex: 1.2; /* Give map a bit more space if desired, or set to 1 */
+  min-width: 300px;
+  min-height: 420px; /* Ensure map has decent height */
+  background-color: #f0f0f0; /* Light gray placeholder background */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(107, 44, 92, 0.2); /* Faint deep-plum border */
+  overflow: hidden; /* Important for iframe to respect border-radius */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.mapPlaceholder iframe {
+  width: 100%;
+  height: 100%;
+  /* border-radius: 10px; // iframe itself might not respect this, parent overflow clips */
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) { /* Breakpoint when info and map stack */
+  .contentWrapper {
+    flex-direction: column;
+  }
+  .infoDetails,
+  .mapPlaceholder {
+    flex-basis: 100%; /* Take full width when stacked */
+    width: 100%;
+  }
+  .mapPlaceholder {
+    min-height: 350px; /* Adjust height for stacked layout */
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2.3rem;
+  }
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+  .infoItem {
+    padding: 18px;
+    gap: 15px;
+  }
+  .itemTitle {
+    font-size: 1.2rem;
+  }
+  .icon {
+    font-size: 1.6rem;
+  }
+  .infoItem p,
+  .infoItem address,
+  .contactLink,
+  .mapLink,
+  .hoursList {
+    font-size: 0.9rem;
+  }
+  .hoursList li {
+    flex-direction: column; /* Stack day and time on small screens for hours */
+    align-items: flex-start;
+  }
+  .hoursList li span {
+    margin-right: 0;
+    margin-bottom: 3px;
+  }
+}
